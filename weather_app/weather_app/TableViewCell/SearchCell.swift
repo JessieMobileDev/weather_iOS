@@ -11,7 +11,6 @@ import UIKit
 class SearchCell: UITableViewCell {
 
     // Outlets
-    @IBOutlet weak var label_cityName: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

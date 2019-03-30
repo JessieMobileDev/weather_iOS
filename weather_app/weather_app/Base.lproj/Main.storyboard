@@ -36,73 +36,42 @@
             </objects>
             <point key="canvasLocation" x="1076" y="132.68365817091455"/>
         </scene>
-        <!--Search View Controller-->
+        <!--Map View Controller-->
         <scene sceneID="68Z-OJ-TTE">
             <objects>
-                <viewController id="kpm-b2-FS9" customClass="SearchViewController" customModule="weather_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="kpm-b2-FS9" customClass="MapViewController" customModule="weather_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="q54-xO-f5f">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iH9-Kk-7es">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="DwH-p0-6oy">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <searchBar key="tableHeaderView" contentMode="redraw" id="cjv-5a-WVd">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                    <connections>
-                                        <outlet property="delegate" destination="kpm-b2-FS9" id="nUa-m7-hJa"/>
-                                    </connections>
-                                </searchBar>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="searchCell" id="3vm-Jv-Mdz" customClass="SearchCell" customModule="weather_app" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="72" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3vm-Jv-Mdz" id="2at-kh-xLz">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nSI-Tm-bTq">
-                                                    <rect key="frame" x="15" y="11" width="345" height="22"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="nSI-Tm-bTq" firstAttribute="top" secondItem="2at-kh-xLz" secondAttribute="topMargin" id="AUd-Z4-2NT"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="nSI-Tm-bTq" secondAttribute="bottom" id="TCO-x8-LiD"/>
-                                                <constraint firstItem="nSI-Tm-bTq" firstAttribute="leading" secondItem="2at-kh-xLz" secondAttribute="leadingMargin" id="aLX-mb-tcR"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="nSI-Tm-bTq" secondAttribute="trailing" id="h6f-CE-RJX"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="label_cityName" destination="nSI-Tm-bTq" id="aAY-7r-3HD"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
+                                <gestureRecognizers/>
                                 <connections>
-                                    <outlet property="dataSource" destination="kpm-b2-FS9" id="Jgg-7W-XJg"/>
-                                    <outlet property="delegate" destination="kpm-b2-FS9" id="5LR-5x-zbx"/>
+                                    <outlet property="delegate" destination="kpm-b2-FS9" id="8LH-bi-qdH"/>
+                                    <outletCollection property="gestureRecognizers" destination="QKd-m9-0LG" appends="YES" id="ImQ-9E-y4n"/>
                                 </connections>
-                            </tableView>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="ZPV-vM-TAo" firstAttribute="trailing" secondItem="iH9-Kk-7es" secondAttribute="trailing" id="WYI-Aw-rqD"/>
-                            <constraint firstItem="iH9-Kk-7es" firstAttribute="leading" secondItem="ZPV-vM-TAo" secondAttribute="leading" id="Y7J-aB-sRP"/>
-                            <constraint firstItem="iH9-Kk-7es" firstAttribute="top" secondItem="ZPV-vM-TAo" secondAttribute="top" id="qhD-S0-fXv"/>
-                            <constraint firstItem="ZPV-vM-TAo" firstAttribute="bottom" secondItem="iH9-Kk-7es" secondAttribute="bottom" id="rqk-A8-Efj"/>
+                            <constraint firstItem="ZPV-vM-TAo" firstAttribute="trailing" secondItem="DwH-p0-6oy" secondAttribute="trailing" id="62C-3j-lQf"/>
+                            <constraint firstItem="DwH-p0-6oy" firstAttribute="top" secondItem="ZPV-vM-TAo" secondAttribute="top" id="AkT-rn-mD4"/>
+                            <constraint firstItem="ZPV-vM-TAo" firstAttribute="bottom" secondItem="DwH-p0-6oy" secondAttribute="bottom" id="Vno-Ob-RjJ"/>
+                            <constraint firstItem="DwH-p0-6oy" firstAttribute="leading" secondItem="ZPV-vM-TAo" secondAttribute="leading" id="sC9-Va-XrX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZPV-vM-TAo"/>
                     </view>
                     <connections>
-                        <outlet property="searchBar" destination="cjv-5a-WVd" id="oA7-9Q-fRX"/>
-                        <outlet property="tableView_search" destination="iH9-Kk-7es" id="AJg-fw-zLu"/>
+                        <outlet property="mapView" destination="DwH-p0-6oy" id="GlO-sx-1m7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qnM-ya-RKC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="QKd-m9-0LG">
+                    <connections>
+                        <action selector="tapOnMap:" destination="kpm-b2-FS9" id="HfP-pw-cBB"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1941.5999999999999" y="-154.27286356821591"/>
         </scene>

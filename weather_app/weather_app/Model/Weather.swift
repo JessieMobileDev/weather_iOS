@@ -8,18 +8,24 @@
 
 import Foundation
 
-class Weather {
+class Weather: Decodable {
     
     // Variables
-    let currentTemperature: String
-    let humidity: String
-    let rainChance: String
-    let windInformation: String
-    
-    init(currentTemp: String, humidity: String, rainChance: String, windInfo: String) {
+    let currentTemperature: Double?
+    let humidity: Double?
+    let rainChance: Double?
+    let windSpeed: Double?
+    let latitude: Double?
+    let longitude: Double?
+    let icon: String?
+
+    init(currentTemp: Double, humidity: Double, rainChance: Double, windSpeed: Double, latitude: Double, longitude: Double, icon: String) {
         self.currentTemperature = currentTemp
         self.humidity = humidity
         self.rainChance = rainChance
-        self.windInformation = windInfo
+        self.windSpeed = windSpeed
+        self.latitude = latitude
+        self.longitude = longitude
+        self.icon = icon
     }
 }
