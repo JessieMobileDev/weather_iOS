@@ -52,8 +52,6 @@ class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
         
         cell.label_cityName.text = cityCell
         
-        print("Inside the cellForRowAt: " + bookmarkedCities.count.description)
-        
         return cell
     }
     

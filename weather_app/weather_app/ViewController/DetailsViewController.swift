@@ -25,8 +25,6 @@ class DetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        print("Value passed to details: " + cityName)
         
         activityIndicator.isHidden = false
         
@@ -38,15 +36,12 @@ extension DetailsViewController {
     
     func retrieveWeatherJSONData(weatherUrl: String) {
         
-        print("Before url check")
         guard let url = URL(string: weatherUrl) else { return }
-        print("after url check")
+
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             
-            print("before checking data")
             guard let data = data else { return }
             
-            print("before do")
             do {
                 
                 if let jsonData = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
