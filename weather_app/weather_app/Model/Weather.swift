@@ -17,15 +17,13 @@ class Weather: Decodable {
     let windSpeed: Double?
     let latitude: Double?
     let longitude: Double?
-    let icon: String?
 
-    init(currentTemp: Double, humidity: Double, rainChance: Double, windSpeed: Double, latitude: Double, longitude: Double, icon: String) {
+    init(currentTemp: Double, humidity: Double, rainChance: Double, windSpeed: Double, latitude: Double, longitude: Double) {
         self.currentTemperature = currentTemp
         self.humidity = humidity
         self.rainChance = rainChance
         self.windSpeed = windSpeed
         self.latitude = latitude
         self.longitude = longitude
-        self.icon = icon
     }
 }

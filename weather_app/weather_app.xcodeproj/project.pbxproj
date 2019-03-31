@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C01E0EA22510B3E001B3DF7 /* ConnectionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C01E0E922510B3E001B3DF7 /* ConnectionHandler.swift */; };
 		4CC8D02C224D159200F3481D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC8D02B224D159200F3481D /* AppDelegate.swift */; };
 		4CC8D031224D159200F3481D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CC8D02F224D159200F3481D /* Main.storyboard */; };
 		4CC8D033224D159400F3481D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CC8D032224D159400F3481D /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C01E0E922510B3E001B3DF7 /* ConnectionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionHandler.swift; sourceTree = "<group>"; };
 		4CC8D028224D159200F3481D /* weather_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weather_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CC8D02B224D159200F3481D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CC8D030224D159200F3481D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -82,6 +84,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C01E0E822510AF6001B3DF7 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				4C01E0E922510B3E001B3DF7 /* ConnectionHandler.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		4CC8D01F224D159200F3481D = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +115,7 @@
 		4CC8D02A224D159200F3481D /* weather_app */ = {
 			isa = PBXGroup;
 			children = (
+				4C01E0E822510AF6001B3DF7 /* Utility */,
 				4CC8D065224D5FFB00F3481D /* Model */,
 				4CC8D064224D5F2C00F3481D /* ViewController */,
 				4CC8D061224D5EF300F3481D /* TableViewCell */,
@@ -295,6 +306,7 @@
 				4CC8D06B224FC4A900F3481D /* BookmarkCell.swift in Sources */,
 				4CC8D05C224D19F100F3481D /* HomeScreenViewController.swift in Sources */,
 				4CC8D02C224D159200F3481D /* AppDelegate.swift in Sources */,
+				4C01E0EA22510B3E001B3DF7 /* ConnectionHandler.swift in Sources */,
 				4CC8D067224D602C00F3481D /* Weather.swift in Sources */,
 				4CC8D05E224D1A6E00F3481D /* DetailsViewController.swift in Sources */,
 				4CC8D069224EAE6400F3481D /* MapViewController.swift in Sources */,

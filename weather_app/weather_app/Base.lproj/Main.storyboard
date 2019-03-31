@@ -53,24 +53,103 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="fYG-fy-KXh"/>
                                 </connections>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-1" translatesAutoresizingMaskIntoConstraints="NO" id="fVs-Hs-3Ja">
-                                <rect key="frame" x="127" y="305" width="121" height="121"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blue_bookmark" translatesAutoresizingMaskIntoConstraints="NO" id="fVs-Hs-3Ja">
+                                <rect key="frame" x="142.5" y="240.5" width="90" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="fVs-Hs-3Ja" secondAttribute="height" multiplier="1:1" id="l0n-Vl-qIB"/>
                                 </constraints>
+                                <variation key="heightClass=compact">
+                                    <mask key="constraints">
+                                        <exclude reference="l0n-Vl-qIB"/>
+                                    </mask>
+                                </variation>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No bookmarks" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="t17-jl-wgl">
+                                <rect key="frame" x="0.0" y="350.5" width="375" height="20.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=compact-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Look for a new city to add to your bookmarks list" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="RZa-cS-OYk">
+                                <rect key="frame" x="0.0" y="381" width="375" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=compact-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                </variation>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="fVs-Hs-3Ja" firstAttribute="centerY" secondItem="Ihr-do-Xa6" secondAttribute="centerY" id="7Kn-er-HIF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RZa-cS-OYk" secondAttribute="trailing" id="4ca-GO-IAn"/>
+                            <constraint firstItem="fVs-Hs-3Ja" firstAttribute="centerY" secondItem="Ihr-do-Xa6" secondAttribute="centerY" constant="-80" id="7Kn-er-HIF"/>
+                            <constraint firstItem="fVs-Hs-3Ja" firstAttribute="centerY" secondItem="Ihr-do-Xa6" secondAttribute="centerY" id="Aoa-Je-gWq">
+                                <variation key="heightClass=compact" constant="-20"/>
+                            </constraint>
+                            <constraint firstItem="fVs-Hs-3Ja" firstAttribute="centerX" secondItem="Ihr-do-Xa6" secondAttribute="centerX" id="HIf-c8-muF"/>
+                            <constraint firstItem="t17-jl-wgl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="HkW-L0-YPL"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ihr-do-Xa6" secondAttribute="trailing" id="JM5-bD-8RX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="t17-jl-wgl" secondAttribute="trailing" id="Jo6-LW-rWW"/>
+                            <constraint firstItem="RZa-cS-OYk" firstAttribute="top" secondItem="t17-jl-wgl" secondAttribute="bottom" constant="10" id="KQ9-Au-viv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="t17-jl-wgl" secondAttribute="trailing" id="NlY-IK-irK"/>
+                            <constraint firstItem="fVs-Hs-3Ja" firstAttribute="height" secondItem="Ihr-do-Xa6" secondAttribute="height" multiplier="0.25" id="NoT-T1-iwD"/>
+                            <constraint firstItem="RZa-cS-OYk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ObH-WO-3LP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RZa-cS-OYk" secondAttribute="trailing" id="VJo-xw-EAD"/>
                             <constraint firstItem="fVs-Hs-3Ja" firstAttribute="centerX" secondItem="Ihr-do-Xa6" secondAttribute="centerX" id="WCp-Tg-BuE"/>
+                            <constraint firstItem="RZa-cS-OYk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dhQ-L2-R88"/>
+                            <constraint firstItem="t17-jl-wgl" firstAttribute="top" secondItem="fVs-Hs-3Ja" secondAttribute="bottom" constant="20" id="l0z-YL-3r8"/>
                             <constraint firstItem="Ihr-do-Xa6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ntM-rj-F3T"/>
+                            <constraint firstItem="t17-jl-wgl" firstAttribute="top" secondItem="fVs-Hs-3Ja" secondAttribute="bottom" constant="37" id="ob8-Hd-IcS">
+                                <variation key="heightClass=compact" constant="20"/>
+                            </constraint>
+                            <constraint firstItem="RZa-cS-OYk" firstAttribute="top" secondItem="t17-jl-wgl" secondAttribute="bottom" constant="40" id="pni-Fr-mMq">
+                                <variation key="heightClass=compact" constant="10"/>
+                            </constraint>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ihr-do-Xa6" secondAttribute="bottom" id="qWo-Ql-KuP"/>
-                            <constraint firstItem="fVs-Hs-3Ja" firstAttribute="height" secondItem="Ihr-do-Xa6" secondAttribute="height" multiplier="0.2" id="r0A-AF-PoY"/>
+                            <constraint firstItem="fVs-Hs-3Ja" firstAttribute="height" secondItem="Ihr-do-Xa6" secondAttribute="height" multiplier="0.15" id="r0A-AF-PoY"/>
+                            <constraint firstItem="t17-jl-wgl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="wQo-Cj-0Lf"/>
                             <constraint firstItem="Ihr-do-Xa6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="x1o-rb-DWN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="NlY-IK-irK"/>
+                                <exclude reference="VJo-xw-EAD"/>
+                                <exclude reference="ob8-Hd-IcS"/>
+                                <exclude reference="wQo-Cj-0Lf"/>
+                                <exclude reference="Aoa-Je-gWq"/>
+                                <exclude reference="HIf-c8-muF"/>
+                                <exclude reference="NoT-T1-iwD"/>
+                                <exclude reference="ObH-WO-3LP"/>
+                                <exclude reference="pni-Fr-mMq"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="constraints">
+                                <exclude reference="4ca-GO-IAn"/>
+                                <exclude reference="Jo6-LW-rWW"/>
+                                <include reference="NlY-IK-irK"/>
+                                <include reference="VJo-xw-EAD"/>
+                                <exclude reference="HkW-L0-YPL"/>
+                                <exclude reference="l0z-YL-3r8"/>
+                                <include reference="ob8-Hd-IcS"/>
+                                <include reference="wQo-Cj-0Lf"/>
+                                <exclude reference="7Kn-er-HIF"/>
+                                <include reference="Aoa-Je-gWq"/>
+                                <include reference="HIf-c8-muF"/>
+                                <include reference="NoT-T1-iwD"/>
+                                <exclude reference="WCp-Tg-BuE"/>
+                                <exclude reference="r0A-AF-PoY"/>
+                                <exclude reference="KQ9-Au-viv"/>
+                                <include reference="ObH-WO-3LP"/>
+                                <exclude reference="dhQ-L2-R88"/>
+                                <include reference="pni-Fr-mMq"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Bookmark" id="adh-cY-3Gb">
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="JPY-LS-4tg">
@@ -81,13 +160,15 @@
                     </navigationItem>
                     <connections>
                         <outlet property="imageView_emptyState" destination="fVs-Hs-3Ja" id="ssv-Qu-Qol"/>
+                        <outlet property="label_emptyState_description" destination="RZa-cS-OYk" id="FvB-R1-2eJ"/>
+                        <outlet property="label_emptyState_title" destination="t17-jl-wgl" id="VnF-YA-kh8"/>
                         <outlet property="tableView_bookmarks" destination="Ihr-do-Xa6" id="A7Y-9b-DLU"/>
                         <segue destination="pgp-fA-Jdj" kind="show" identifier="goToDetailsScreen" id="XjD-bC-IXI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="132.68365817091455"/>
+            <point key="canvasLocation" x="1075.4122938530736" y="132"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="68Z-OJ-TTE">
@@ -318,6 +399,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Image-1" width="142" height="151"/>
+        <image name="blue_bookmark" width="200" height="278"/>
     </resources>
 </document>

@@ -13,7 +13,6 @@ class BookmarkCell: UITableViewCell {
     // Outlets
     @IBOutlet weak var label_cityName: UILabel!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

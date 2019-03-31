@@ -91,60 +91,67 @@ class MapViewController: UIViewController {
 
     @IBAction func tapOnMap(_ sender: UITapGestureRecognizer) {
         
-        // Retrieve the location where the user tapped on the map
-        let location = sender.location(in: self.mapView)
-        let locationCoordinates = mapView.convert(location, toCoordinateFrom: mapView)
-        let annotation = MKPointAnnotation()
-        
-        // Convert location to address to retrieve the city name
-        let geoCoder = CLGeocoder()
-        let latAndLon = CLLocation(latitude: locationCoordinates.latitude, longitude: locationCoordinates.longitude)
-        
-        geoCoder.reverseGeocodeLocation(latAndLon) { [weak self](placemarks, error)  in
+        if ConnectionHandler.Connection() {
             
-            guard let self = self else { return }
+            // Retrieve the location where the user tapped on the map
+            let location = sender.location(in: self.mapView)
+            let locationCoordinates = mapView.convert(location, toCoordinateFrom: mapView)
+            let annotation = MKPointAnnotation()
             
-            if let _ = error {
+            // Convert location to address to retrieve the city name
+            let geoCoder = CLGeocoder()
+            let latAndLon = CLLocation(latitude: locationCoordinates.latitude, longitude: locationCoordinates.longitude)
+            
+            geoCoder.reverseGeocodeLocation(latAndLon) { [weak self](placemarks, error)  in
                 
-                // Show alert informing the user
-                return
+                guard let self = self else { return }
+                
+                if let _ = error {
+                    
+                    // Show alert informing the user
+                    return
+                }
+                
+                guard let placemark = placemarks?.first else {
+                    
+                    // Show alert informing the user
+                    return
+                }
+                
+                self.cityName = placemark.locality ?? ""
+                self.estateName = placemark.subAdministrativeArea ?? ""
+                self.countryName = placemark.country ?? ""
+                
+                DispatchQueue.main.async {
+                    
+                    // Assign values to the annotation
+                    annotation.coordinate = locationCoordinates
+                    annotation.title = self.cityName
+                    annotation.subtitle = "Bookmark"
+                    
+                    // Apply the annotation to the map
+                    self.mapView.removeAnnotations(self.mapView.annotations)
+                    self.mapView.addAnnotation(annotation)
+                }
+                
+                // Display an alert to double check if the user would like to bookmark the selected city
+                let message = "Would you like to bookmark " + self.cityName + "?"
+                let alert = UIAlertController(title: "Bookmark", message: message, preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "Yes", style: UIAlertAction.Style.default, handler: { (action) in
+                    
+                    // Perform the unwind segue to pass the weather data back to Home Screen
+                    self.performSegue(withIdentifier: "unwindToHomeScreen", sender: self)
+                    
+                }))
+                alert.addAction(UIAlertAction(title: "No", style: UIAlertAction.Style.cancel, handler: { (action) in
+                    alert.dismiss(animated: true, completion: nil)
+                }))
+                self.present(alert, animated: true, completion: nil)
             }
             
-            guard let placemark = placemarks?.first else {
-                
-                // Show alert informing the user
-                return
-            }
+        } else {
             
-            self.cityName = placemark.locality ?? ""
-            self.estateName = placemark.subAdministrativeArea ?? ""
-            self.countryName = placemark.country ?? ""
-            
-            DispatchQueue.main.async {
-                
-                // Assign values to the annotation
-                annotation.coordinate = locationCoordinates
-                annotation.title = self.cityName
-                annotation.subtitle = "Bookmark"
-                
-                // Apply the annotation to the map
-                self.mapView.removeAnnotations(self.mapView.annotations)
-                self.mapView.addAnnotation(annotation)
-            }
-            
-            // Display an alert to double check if the user would like to bookmark the selected city
-            let message = "Would you like to bookmark " + self.cityName + "?"
-            let alert = UIAlertController(title: "Bookmark", message: message, preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "Yes", style: UIAlertAction.Style.default, handler: { (action) in
-                
-                // Perform the unwind segue to pass the weather data back to Home Screen
-                self.performSegue(withIdentifier: "unwindToHomeScreen", sender: self)
-                
-            }))
-            alert.addAction(UIAlertAction(title: "No", style: UIAlertAction.Style.cancel, handler: { (action) in
-                alert.dismiss(animated: true, completion: nil)
-            }))
-            self.present(alert, animated: true, completion: nil)
+            showAlert(title: "No connection", message: "Turn on the connection on your phone to proceed", positiveBtn: "OK")
         }
     }
 }

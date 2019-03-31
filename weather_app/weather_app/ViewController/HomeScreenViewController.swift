@@ -19,6 +19,8 @@ class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
     // Outlets
     @IBOutlet weak var tableView_bookmarks: UITableView!
     @IBOutlet weak var imageView_emptyState: UIImageView!
+    @IBOutlet weak var label_emptyState_title: UILabel!
+    @IBOutlet weak var label_emptyState_description: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,14 +75,27 @@ class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "goToDetailsScreen", sender: indexPath)
+        
+        if ConnectionHandler.Connection() {
+            
+           performSegue(withIdentifier: "goToDetailsScreen", sender: indexPath)
+        } else {
+            
+            showAlert(title: "No connection", message: "Turn on the connection on your phone to proceed", positiveBtn: "OK")
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "goToMapScreen" {
             
-            guard let _ = segue.destination as? MapViewController else { return }
+            if ConnectionHandler.Connection() {
+                
+                guard let _ = segue.destination as? MapViewController else { return }
+            } else {
+                
+                showAlert(title: "No connection", message: "Turn on the connection on your phone to proceed", positiveBtn: "OK")
+            }
             
         } else if segue.identifier == "goToDetailsScreen" {
             
@@ -117,12 +132,14 @@ extension HomeScreenViewController {
             
             // Display the empty state if no data
             imageView_emptyState.isHidden = false
-            imageView_emptyState.isHidden = false
+            label_emptyState_title.isHidden = false
+            label_emptyState_description.isHidden = false
         } else {
             
             // Hide the empty state if there is data
             imageView_emptyState.isHidden = true
-            imageView_emptyState.isHidden = true
+            label_emptyState_title.isHidden = true
+            label_emptyState_description.isHidden = true
         }
     }
     
@@ -134,5 +151,15 @@ extension HomeScreenViewController {
     func loadArrayFromUserDefaults() -> [String] {
         
         return defaults.stringArray(forKey: USER_DEFAULT_CITIES_BOOKMARK) ?? [String]()
+    }
+    
+    func showAlert(title: String, message: String, positiveBtn: String) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: positiveBtn, style: UIAlertAction.Style.default, handler: { (action) in
+            
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
 }

@@ -79,12 +79,6 @@ extension DetailsViewController {
             let lon = results_coords["lon"] as? Double
             else { return }
         
-        // Retrieving: icon
-        guard let results_icon = jsonData["weather"] as? [[String: Any]],
-            let results_icon_firstObject = results_icon[0] as? [String: Any],
-            let icon = results_icon_firstObject["icon"] as? String
-            else { return }
-        
         // Retrieving: Wind speed
         guard let results_wind = jsonData["wind"] as? [String: Any],
             let speed = results_wind["speed"] as? Double
@@ -97,9 +91,7 @@ extension DetailsViewController {
             rainChance = results_rain["3h"] as! Double
         }
         
-        let weather: Weather = Weather(currentTemp: temperature, humidity: humidity, rainChance: rainChance, windSpeed: speed, latitude: lat, longitude: lon, icon: icon)
-        
-        print("Temperature: \(temperature) -- Humidity: \(humidity) -- Rain: \(rainChance) -- Icon: \(icon) -- Latitude: \(lat) -- Longitude: \(lon) -- Wind Speed: \(speed)")
+        let weather: Weather = Weather(currentTemp: temperature, humidity: humidity, rainChance: rainChance, windSpeed: speed, latitude: lat, longitude: lon)
         
         DispatchQueue.main.async {
             
